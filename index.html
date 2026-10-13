@@ -1,0 +1,2531 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FranchiseFlow - World-Class Enterprise Franchise Management Platform. Monitor franchise locations, real-time performance, inventory, finances, tasks, staff, and royalties.">
+  <meta name="keywords" content="franchise management, franchisor software, multi-location POS, royalty tracking, enterprise franchise ERP">
+  <title>FranchiseFlow Enterprise | Intelligent Franchise Management Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- APPLICATION WRAPPER -->
+  <div id="app-root">
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 1: PUBLIC ENTERPRISE LANDING PAGE (Switchable with App Dashboard) -->
+    <!-- ========================================================================= -->
+    <div id="landing-page" class="landing-page active-view-section">
+      <!-- LANDING HEADER -->
+      <header class="landing-header">
+        <div class="landing-nav-container">
+          <div class="brand-logo" onclick="switchMainView('landing')">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <span class="brand-name">Franchise<span>Flow</span></span>
+            <span class="brand-tag">Enterprise</span>
+          </div>
+
+          <nav class="landing-nav" id="landing-nav-menu">
+            <a href="#landing-features" class="nav-link">Features</a>
+            <a href="#landing-solutions" class="nav-link">Solutions</a>
+            <a href="#landing-locations-preview" class="nav-link">Network</a>
+            <a href="#landing-calculator" class="nav-link">Royalty Calculator</a>
+            <a href="#landing-pricing" class="nav-link">Pricing</a>
+            <div class="mobile-nav-actions">
+              <button class="btn btn-outline" onclick="openLoginModal()">Sign In</button>
+              <button class="btn btn-primary" onclick="launchPlatform()">Launch Platform &rarr;</button>
+            </div>
+          </nav>
+
+          <div class="landing-header-actions">
+            <button class="theme-toggle-btn" id="landing-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <button class="btn btn-outline nav-desktop-btn" onclick="openLoginModal()">Sign In</button>
+            <button class="btn btn-primary nav-desktop-btn" onclick="launchPlatform()">
+              <span>Launch Platform</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Mobile Menu">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- HERO SECTION -->
+      <section class="landing-hero">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-grid-pattern"></div>
+        <div class="container hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>FranchiseFlow Enterprise 4.2 • Autonomous Multi-Unit ERP</span>
+          </div>
+          <h1 class="hero-title">
+            Manage Every Franchise.<br>
+            <span class="gradient-text">From One Powerful Platform.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Centralize your multi-location network with institutional clarity. Unify real-time sales, automated royalty collections, inventory alerts, employee compliance, and operational tasks across 10 to 1,000+ branches.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn btn-primary btn-lg" onclick="launchPlatform()">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>Explore Live Platform</span>
+            </button>
+            <button class="btn btn-glass btn-lg" onclick="scrollToSection('landing-calculator')">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="6" y1="8" x2="18" y2="8"></line><line x1="6" y1="12" x2="14" y2="12"></line><line x1="6" y1="16" x2="10" y2="16"></line></svg>
+              <span>Royalty Calculator</span>
+            </button>
+          </div>
+
+          <!-- Hero Metrics Bar -->
+          <div class="hero-metrics-bar">
+            <div class="metric-item">
+              <span class="metric-value" id="landing-stat-locations">284+</span>
+              <span class="metric-label">Active Franchise Hubs</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-value">$42.8M</span>
+              <span class="metric-label">Quarterly Network Volume</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-value">99.98%</span>
+              <span class="metric-label">Royalty Billing Accuracy</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-value">&lt; 150ms</span>
+              <span class="metric-label">Live Sync Latency</span>
+            </div>
+          </div>
+
+          <!-- Live Dashboard Preview Interactive Mockup -->
+          <div class="hero-preview-frame">
+            <div class="browser-chrome">
+              <div class="browser-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="browser-url">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>https://enterprise.franchiseflow.io/network/overview</span>
+              </div>
+              <div class="browser-actions">
+                <span class="status-chip live"><span class="pulse-dot-sm"></span> Sync Live</span>
+                <button class="btn btn-sm btn-primary" onclick="launchPlatform()">Enter Workspace</button>
+              </div>
+            </div>
+            <div class="preview-inner-canvas" onclick="launchPlatform()">
+              <!-- Mini Header in Preview -->
+              <div class="mockup-top">
+                <div class="mockup-welcome">
+                  <span class="text-xs text-muted">ORGANIZATION DASHBOARD</span>
+                  <h4>OmniCorp Holdings • 12 Active Regions</h4>
+                </div>
+                <div class="mockup-quick-kpis">
+                  <div class="mini-kpi">
+                    <span class="label">Monthly Rev</span>
+                    <span class="val text-cyan">$842,650</span>
+                  </div>
+                  <div class="mini-kpi">
+                    <span class="label">Total Royalties</span>
+                    <span class="val text-green">$58,985</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Mini Grid Preview -->
+              <div class="mockup-grid">
+                <div class="mockup-card">
+                  <div class="mockup-card-title">Top Performing Locations</div>
+                  <div class="mock-row"><span>Austin Flagship (#TX-01)</span><strong>$148,200</strong></div>
+                  <div class="mock-row"><span>Seattle Hub (#WA-04)</span><strong>$124,550</strong></div>
+                  <div class="mock-row"><span>Miami Metro (#FL-08)</span><strong>$112,900</strong></div>
+                  <div class="mock-row"><span>Denver West (#CO-02)</span><strong>$98,400</strong></div>
+                </div>
+                <div class="mockup-card">
+                  <div class="mockup-card-title">Real-time Network Flow</div>
+                  <div class="mockup-chart-bars">
+                    <div class="bar-col"><div class="bar" style="height: 60%"></div><span>Mon</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 75%"></div><span>Tue</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 85%"></div><span>Wed</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 95%"></div><span>Thu</span></div>
+                    <div class="bar-col active"><div class="bar" style="height: 100%"></div><span>Fri</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 90%"></div><span>Sat</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 70%"></div><span>Sun</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-overlay-cta">
+                <span class="btn btn-primary shadow-glow">Click to Launch Full Interactive Demo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOGOS STRIP -->
+      <section class="trust-strip">
+        <div class="container text-center">
+          <p class="trust-label">TRUSTED BY 450+ GLOBAL FRANCHISORS AND MULTI-UNIT OPERATORS</p>
+          <div class="trust-logos-wrap">
+            <span class="trust-logo">NEXUS FOODS</span>
+            <span class="trust-logo">APEX FITNESS CO.</span>
+            <span class="trust-logo">KINETIC LOGISTICS</span>
+            <span class="trust-logo">VELOX AUTO CARE</span>
+            <span class="trust-logo">PUREGLOW WELLNESS</span>
+            <span class="trust-logo">URBAN ROAST LABS</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES SECTION -->
+      <section id="landing-features" class="landing-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="badge-pill">Enterprise Capabilities</span>
+            <h2 class="section-title">Engineered Specifically For Multi-Unit Scale</h2>
+            <p class="section-desc">Conventional ERPs fail at franchise operations. FranchiseFlow bridges franchisor headquarters with independent franchise operators flawlessly.</p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon cyan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              </div>
+              <h3 class="feature-title">Multi-Location Telemetry</h3>
+              <p class="feature-text">Track real-time revenue, customer ticket averages, customer satisfaction, and unit compliance across every zip code simultaneously.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <h3 class="feature-title">Automated Royalty Ledger</h3>
+              <p class="feature-text">Eliminate disputes with verifiable gross-revenue calculations. Automatic royalty calculation, fee deductions, ACH tracking, and ledger audits.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              </div>
+              <h3 class="feature-title">Synchronized Inventory</h3>
+              <p class="feature-text">Standardize approved vendor purchasing, prevent stockouts with threshold triggers, and track cost of goods sold across regions.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h3 class="feature-title">Staff Compliance & HR</h3>
+              <p class="feature-text">Ensure mandatory food-handling certifications, training module completion, staff shifts, and role-based permissions at each location.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon amber">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+              <h3 class="feature-title">Vault Document Center</h3>
+              <p class="feature-text">Digitize franchise disclosure documents (FDD), territorial agreements, brand standard operating procedures, and NDA records securely.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon red">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <h3 class="feature-title">Brand Quality Audits</h3>
+              <p class="feature-text">Schedule field inspections, assign remediation tasks, upload photo evidence, and maintain a consistent customer experience network-wide.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE ROYALTY CALCULATOR -->
+      <section id="landing-calculator" class="landing-section bg-surface-alt">
+        <div class="container">
+          <div class="calculator-card">
+            <div class="calculator-intro">
+              <span class="badge-pill">Interactive ROI Model</span>
+              <h2 class="section-title">Network Royalty & Revenue Simulator</h2>
+              <p class="text-muted">Estimate monthly gross royalty collections, tech fees, and platform savings based on your network size.</p>
+              <div class="calc-highlights">
+                <div class="calc-hl-item">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Real-time ACH automated reconciliation</span>
+                </div>
+                <div class="calc-hl-item">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Zero manual spreadsheet reconciliation</span>
+                </div>
+                <div class="calc-hl-item">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Automated audit trail for franchise associations</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calculator-body">
+              <div class="calc-inputs">
+                <div class="calc-field">
+                  <div class="calc-label-row">
+                    <label for="calc-units">Franchise Locations</label>
+                    <span class="calc-val-badge" id="calc-units-val">24 Units</span>
+                  </div>
+                  <input type="range" id="calc-units" min="5" max="250" value="24" class="calc-slider">
+                </div>
+
+                <div class="calc-field">
+                  <div class="calc-label-row">
+                    <label for="calc-rev">Avg. Monthly Rev Per Unit ($)</label>
+                    <span class="calc-val-badge" id="calc-rev-val">$65,000</span>
+                  </div>
+                  <input type="range" id="calc-rev" min="10000" max="250000" step="5000" value="65000" class="calc-slider">
+                </div>
+
+                <div class="calc-field">
+                  <div class="calc-label-row">
+                    <label for="calc-royalty">Royalty Agreement (%)</label>
+                    <span class="calc-val-badge" id="calc-royalty-val">6.0%</span>
+                  </div>
+                  <input type="range" id="calc-royalty" min="2.0" max="12.0" step="0.5" value="6.0" class="calc-slider">
+                </div>
+
+                <div class="calc-field">
+                  <div class="calc-label-row">
+                    <label for="calc-adfund">National Ad Fund (%)</label>
+                    <span class="calc-val-badge" id="calc-adfund-val">2.0%</span>
+                  </div>
+                  <input type="range" id="calc-adfund" min="0.0" max="5.0" step="0.5" value="2.0" class="calc-slider">
+                </div>
+              </div>
+
+              <div class="calc-results">
+                <div class="calc-res-item">
+                  <span class="res-label">Monthly Network Gross Sales</span>
+                  <span class="res-num" id="res-gross-sales">$1,560,000</span>
+                </div>
+                <div class="calc-res-divider"></div>
+                <div class="calc-res-item highlight">
+                  <span class="res-label">Monthly Gross Royalties</span>
+                  <span class="res-num text-cyan" id="res-royalties">$93,600</span>
+                </div>
+                <div class="calc-res-item">
+                  <span class="res-label">Monthly Ad Fund Pool</span>
+                  <span class="res-num text-green" id="res-adfund">$31,200</span>
+                </div>
+                <div class="calc-res-item">
+                  <span class="res-label">Est. Annual HQ Cashflow</span>
+                  <span class="res-num text-purple" id="res-annual-flow">$1,497,600</span>
+                </div>
+                <button class="btn btn-primary w-100 mt-3" onclick="launchPlatform()">View In Live Dashboard &rarr;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING TIERS -->
+      <section id="landing-pricing" class="landing-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="badge-pill">Predictable Enterprise Pricing</span>
+            <h2 class="section-title">Scales Transparently With Network Growth</h2>
+            <p class="section-desc">No hidden revenue take-rates. Dedicated SLA with unlimited franchise users.</p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="plan-header">
+                <h3 class="plan-name">Emerging Franchisor</h3>
+                <p class="plan-desc">For growing brands launching their first multi-unit expansion.</p>
+                <div class="plan-price">
+                  <span class="currency">$</span>
+                  <span class="amount">499</span>
+                  <span class="period">/month</span>
+                </div>
+              </div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 15 Franchise Locations</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Automated Royalty Calculations</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Inventory & Stock Audits</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Standard Document Vault</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Community Support</li>
+              </ul>
+              <button class="btn btn-outline w-100" onclick="launchPlatform()">Get Started</button>
+            </div>
+
+            <div class="pricing-card popular">
+              <div class="popular-badge">MOST POPULAR</div>
+              <div class="plan-header">
+                <h3 class="plan-name">Enterprise Network</h3>
+                <p class="plan-desc">Full suite operational hub for multi-state and regional brands.</p>
+                <div class="plan-price">
+                  <span class="currency">$</span>
+                  <span class="amount">1,199</span>
+                  <span class="period">/month</span>
+                </div>
+              </div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 75 Franchise Locations</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Real-Time POS Sync & Telemetry</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Automated ACH Royalty Debits</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Quality Inspection Audits</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority 24/7 Dedicated Support</li>
+              </ul>
+              <button class="btn btn-primary w-100" onclick="launchPlatform()">Launch Demo Now</button>
+            </div>
+
+            <div class="pricing-card">
+              <div class="plan-header">
+                <h3 class="plan-name">Global Conglomerate</h3>
+                <p class="plan-desc">Tailored ERP integration for international multi-brand systems.</p>
+                <div class="plan-price">
+                  <span class="currency">$</span>
+                  <span class="amount">2,499</span>
+                  <span class="period">/month</span>
+                </div>
+              </div>
+              <ul class="plan-features">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Franchise Locations</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-Currency & International Tax</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom ERP / SAP Connectors</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Solutions Architect</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 99.99% Guaranteed SLA Uptime</li>
+              </ul>
+              <button class="btn btn-outline w-100" onclick="launchPlatform()">Contact Sales</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LANDING FOOTER -->
+      <footer class="landing-footer">
+        <div class="container footer-inner">
+          <div class="footer-col-main">
+            <div class="brand-logo">
+              <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              </div>
+              <span class="brand-name">Franchise<span>Flow</span></span>
+            </div>
+            <p class="footer-tagline">The trusted mission control platform powering leading franchise systems across the globe.</p>
+            <div class="footer-status-pill">
+              <span class="pulse-dot-sm"></span> All Enterprise Services Operational
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="javascript:void(0)" onclick="launchPlatform('locations')">Locations Manager</a>
+            <a href="javascript:void(0)" onclick="launchPlatform('finance')">Royalty Engine</a>
+            <a href="javascript:void(0)" onclick="launchPlatform('inventory')">Central Supply Chain</a>
+            <a href="javascript:void(0)" onclick="launchPlatform('tasks')">Operations Kanban</a>
+            <a href="javascript:void(0)" onclick="launchPlatform('reports')">Compliance Auditing</a>
+          </div>
+          <div class="footer-col">
+            <h4>Solutions</h4>
+            <a href="#landing-features">Quick-Service Restaurants</a>
+            <a href="#landing-features">Fitness & Gym Networks</a>
+            <a href="#landing-features">Automotive Services</a>
+            <a href="#landing-features">Health & Beauty Salons</a>
+            <a href="#landing-features">Retail Franchises</a>
+          </div>
+          <div class="footer-col">
+            <h4>Governance</h4>
+            <a href="javascript:void(0)" onclick="showToast('Security documentation loaded.', 'info')">Security & SOC2</a>
+            <a href="javascript:void(0)" onclick="showToast('Privacy Policy is standard GDPR/CCPA compliant.', 'info')">Privacy Policy</a>
+            <a href="javascript:void(0)" onclick="showToast('Terms of Enterprise License active.', 'info')">Terms of Service</a>
+            <a href="javascript:void(0)" onclick="showToast('SLA guarantee is 99.98% verified.', 'info')">Service Level SLA</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <p>&copy; 2026 FranchiseFlow Systems Inc. All rights reserved. Enterprise edition.</p>
+          <div class="footer-actions">
+            <button class="btn btn-sm btn-glass" onclick="launchPlatform()">Access Live Application Workspace &rarr;</button>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 2: ENTERPRISE SAAS DASHBOARD PLATFORM (The interactive core app)  -->
+    <!-- ========================================================================= -->
+    <div id="dashboard-platform" class="dashboard-platform">
+
+      <!-- PLATFORM TOP BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Navigation Sidebar" title="Toggle Sidebar">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          
+          <div class="topbar-brand" onclick="switchMainView('landing')">
+            <div class="logo-icon-sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+            <span class="brand-text">Franchise<span>Flow</span></span>
+          </div>
+
+          <!-- GLOBAL QUICK SEARCH BAR -->
+          <div class="global-search-wrap">
+            <div class="search-input-box">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="global-search-input" placeholder="Search franchises, staff, SKUs, tasks... (Press '/' to focus)" autocomplete="off">
+              <span class="search-shortcut">/</span>
+            </div>
+            <!-- Dynamic Search Suggestions Dropdown -->
+            <div id="search-results-dropdown" class="search-results-dropdown hidden"></div>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Live Date & Session Clock -->
+          <div class="topbar-clock hidden-mobile">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span id="live-time-display">--:--:--</span>
+          </div>
+
+          <!-- ROLE SELECTOR -->
+          <div class="role-selector-wrap hidden-mobile">
+            <label for="active-role-select" class="sr-only">Active Role</label>
+            <select id="active-role-select" class="role-select" onchange="changeUserRole(this.value)">
+              <option value="Super Admin">🛡️ Super Admin (HQ)</option>
+              <option value="Franchise Owner">💼 Franchise Owner</option>
+              <option value="Franchise Manager">👔 General Manager</option>
+              <option value="Staff">👤 Field Staff</option>
+            </select>
+          </div>
+
+          <!-- QUICK ADD BUTTON -->
+          <div class="quick-add-dropdown-wrap">
+            <button class="btn btn-primary btn-sm quick-add-btn" id="quick-add-trigger" onclick="toggleQuickAddMenu()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>+ Quick Add</span>
+            </button>
+            <div id="quick-add-menu" class="dropdown-panel quick-add-menu hidden">
+              <button onclick="openAddFranchiseModal()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg> New Franchise Location</button>
+              <button onclick="openAddEmployeeModal()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg> New Staff Member</button>
+              <button onclick="openAddProductModal()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> New Inventory Item</button>
+              <button onclick="openAddTaskModal()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg> Create Operational Task</button>
+              <button onclick="openAddTransactionModal()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Record Financial Entry</button>
+              <button onclick="openUploadDocModal()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg> Upload Franchise Doc</button>
+            </div>
+          </div>
+
+          <!-- NOTIFICATIONS BELL -->
+          <div class="topbar-action-wrap">
+            <button class="topbar-icon-btn" id="notif-btn" onclick="toggleNotificationsPanel()" aria-label="View Notifications" title="Notifications">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span class="badge-count" id="notif-badge-count">3</span>
+            </button>
+            <div id="notif-panel" class="dropdown-panel notif-panel hidden">
+              <div class="panel-header">
+                <h4>System Notifications</h4>
+                <div class="panel-header-actions">
+                  <button class="text-btn" onclick="markAllNotificationsRead()">Mark all read</button>
+                  <button class="text-btn text-danger" onclick="clearAllNotifications()">Clear</button>
+                </div>
+              </div>
+              <div class="notif-list" id="notif-list-container">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- MESSAGES ICON -->
+          <div class="topbar-action-wrap">
+            <button class="topbar-icon-btn" onclick="navigateToView('messages')" aria-label="Internal Communications" title="Internal Communications">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              <span class="badge-count text-cyan" id="msg-badge-count">2</span>
+            </button>
+          </div>
+
+          <!-- THEME TOGGLE -->
+          <button class="topbar-icon-btn theme-toggle-btn" id="dash-theme-toggle" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+            <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+
+          <!-- USER PROFILE MENU -->
+          <div class="user-profile-wrap">
+            <button class="profile-pill-btn" onclick="toggleProfileDropdown()">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="user-avatar" id="current-user-avatar">
+              <div class="user-info-text hidden-mobile">
+                <span class="user-name" id="current-user-name">Alexandria Hayes</span>
+                <span class="user-role-badge" id="current-user-role">Super Admin</span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="profile-dropdown" class="dropdown-panel profile-dropdown hidden">
+              <div class="profile-header">
+                <p class="name">Alexandria Hayes</p>
+                <p class="email">a.hayes@franchisecosys.com</p>
+                <span class="session-tag"><span class="dot-green"></span> Session Encrypted</span>
+              </div>
+              <div class="dropdown-divider"></div>
+              <button onclick="navigateToView('settings')"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Organization Settings</button>
+              <button onclick="navigateToView('reports')"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Audit Compliance</button>
+              <button onclick="switchMainView('landing')"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Back to Marketing Site</button>
+              <div class="dropdown-divider"></div>
+              <button class="text-danger" onclick="logoutUser()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Terminate Session</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- PLATFORM BODY: SIDEBAR + MAIN CONTENT AREA -->
+      <div class="platform-layout">
+
+        <!-- COLLAPSIBLE SIDEBAR -->
+        <aside class="sidebar" id="app-sidebar">
+          <div class="sidebar-inner">
+            <div class="sidebar-section-title">COMMAND CENTER</div>
+            <nav class="sidebar-nav">
+              <button class="nav-item active" data-view="overview" onclick="navigateToView('overview')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Overview</span>
+              </button>
+              <button class="nav-item" data-view="locations" onclick="navigateToView('locations')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Franchise Locations</span>
+                <span class="nav-badge" id="sidebar-locations-count">6</span>
+              </button>
+              <button class="nav-item" data-view="performance" onclick="navigateToView('performance')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                <span>Performance Analytics</span>
+              </button>
+              <button class="nav-item" data-view="sales" onclick="navigateToView('sales')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Sales Management</span>
+              </button>
+              <button class="nav-item" data-view="finance" onclick="navigateToView('finance')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <span>Finances & Royalties</span>
+                <span class="nav-badge alert" id="sidebar-royalty-pending">2 Due</span>
+              </button>
+            </nav>
+
+            <div class="sidebar-section-title">OPERATIONS & INVENTORY</div>
+            <nav class="sidebar-nav">
+              <button class="nav-item" data-view="employees" onclick="navigateToView('employees')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span>Staff & Managers</span>
+                <span class="nav-badge" id="sidebar-employees-count">10</span>
+              </button>
+              <button class="nav-item" data-view="inventory" onclick="navigateToView('inventory')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                <span>Supply & Inventory</span>
+                <span class="nav-badge warning" id="sidebar-lowstock-count">3 Low</span>
+              </button>
+              <button class="nav-item" data-view="tasks" onclick="navigateToView('tasks')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                <span>Tasks & Audits</span>
+                <span class="nav-badge" id="sidebar-tasks-count">8</span>
+              </button>
+              <button class="nav-item" data-view="documents" onclick="navigateToView('documents')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span>Document Vault</span>
+              </button>
+            </nav>
+
+            <div class="sidebar-section-title">COMMUNICATION & GOVERNANCE</div>
+            <nav class="sidebar-nav">
+              <button class="nav-item" data-view="marketing" onclick="navigateToView('marketing')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>Marketing Hub</span>
+              </button>
+              <button class="nav-item" data-view="messages" onclick="navigateToView('messages')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                <span>Branch Messaging</span>
+              </button>
+              <button class="nav-item" data-view="reports" onclick="navigateToView('reports')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                <span>Executive Reports</span>
+              </button>
+              <button class="nav-item" data-view="settings" onclick="navigateToView('settings')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>System Settings</span>
+              </button>
+            </nav>
+
+            <!-- Sidebar Network Status Widget -->
+            <div class="sidebar-status-card">
+              <div class="status-card-header">
+                <span class="status-dot-active"></span>
+                <span class="title">Sync Engine 4.2</span>
+              </div>
+              <p class="desc">6 of 6 regional nodes responding. Zero latency delay.</p>
+              <div class="sync-progress-bar"><div class="fill" style="width: 100%"></div></div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN DASHBOARD CONTENT ROUTER -->
+        <main class="main-content-viewport" id="main-content-viewport">
+
+          <!-- ============================================ -->
+          <!-- VIEW 1: DASHBOARD OVERVIEW                   -->
+          <!-- ============================================ -->
+          <div id="view-overview" class="app-view active">
+            <!-- Top Controls Row -->
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Executive Command Overview</h1>
+                <p class="view-subtitle">Consolidated operational telemetry across all franchised territories.</p>
+              </div>
+              <div class="view-header-actions">
+                <div class="date-badge">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span id="overview-filter-label">Current Cycle (Sep 2026)</span>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="exportDataReport('overview')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export CSV</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openAddFranchiseModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Add Location</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 8 Institutional KPI Cards -->
+            <div class="kpi-grid">
+              <div class="kpi-card" onclick="navigateToView('locations')">
+                <div class="kpi-header">
+                  <span class="kpi-label">Total Franchise Locations</span>
+                  <div class="kpi-icon cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div>
+                </div>
+                <div class="kpi-val-row">
+                  <span class="kpi-value" id="kpi-total-locations">6</span>
+                  <span class="kpi-trend positive">+100% YoY</span>
+                </div>
+                <div class="kpi-subtext"><span class="highlight-text" id="kpi-active-locations">6</span> fully licensed & operating</div>
+              </div>
+
+              <div class="kpi-card" onclick="navigateToView('sales')">
+                <div class="kpi-header">
+                  <span class="kpi-label">Monthly Gross Network Revenue</span>
+                  <div class="kpi-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+                </div>
+                <div class="kpi-val-row">
+                  <span class="kpi-value" id="kpi-monthly-revenue">$718,650</span>
+                  <span class="kpi-trend positive">+18.4%</span>
+                </div>
+                <div class="kpi-subtext">vs. $606,900 previous month</div>
+              </div>
+
+              <div class="kpi-card" onclick="navigateToView('finance')">
+                <div class="kpi-header">
+                  <span class="kpi-label">Accrued Royalties (HQ)</span>
+                  <div class="kpi-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg></div>
+                </div>
+                <div class="kpi-val-row">
+                  <span class="kpi-value" id="kpi-accrued-royalties">$43,119</span>
+                  <span class="kpi-trend positive">+14.2%</span>
+                </div>
+                <div class="kpi-subtext">6.0% network blended rate</div>
+              </div>
+
+              <div class="kpi-card" onclick="navigateToView('sales')">
+                <div class="kpi-header">
+                  <span class="kpi-label">Network Order Transactions</span>
+                  <div class="kpi-icon purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
+                </div>
+                <div class="kpi-val-row">
+                  <span class="kpi-value" id="kpi-total-orders">28,420</span>
+                  <span class="kpi-trend positive">+9.6%</span>
+                </div>
+                <div class="kpi-subtext">Avg basket size: $25.28</div>
+              </div>
+
+              <div class="kpi-card" onclick="navigateToView('employees')">
+                <div class="kpi-header">
+                  <span class="kpi-label">Registered Branch Staff</span>
+                  <div class="kpi-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
+                </div>
+                <div class="kpi-val-row">
+                  <span class="kpi-value" id="kpi-total-staff">74</span>
+                  <span class="kpi-trend neutral">97% Active</span>
+                </div>
+                <div class="kpi-subtext">6 General Managers on duty</div>
+              </div>
+
+              <div class="kpi-card" onclick="navigateToView('inventory')">
+                <div class="kpi-header">
+                  <span class="kpi-label">Low Stock Triggers</span>
+                  <div class="kpi-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+                </div>
+                <div class="kpi-val-row">
+                  <span class="kpi-value text-danger" id="kpi-low-stock">3 SKUs</span>
+                  <span class="kpi-trend negative">Urgent</span>
+                </div>
+                <div class="kpi-subtext">Immediate re-order advised</div>
+              </div>
+
+              <div class="kpi-card" onclick="navigateToView('tasks')">
+                <div class="kpi-header">
+                  <span class="kpi-label">Pending Operational Tasks</span>
+                  <div class="kpi-icon cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></div>
+                </div>
+                <div class="kpi-val-row">
+                  <span class="kpi-value" id="kpi-pending-tasks">5 Tasks</span>
+                  <span class="kpi-trend neutral">On schedule</span>
+                </div>
+                <div class="kpi-subtext">2 Quality Audits pending</div>
+              </div>
+
+              <div class="kpi-card" onclick="navigateToView('performance')">
+                <div class="kpi-header">
+                  <span class="kpi-label">Network Quality Score</span>
+                  <div class="kpi-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                </div>
+                <div class="kpi-val-row">
+                  <span class="kpi-value" id="kpi-quality-score">96.4%</span>
+                  <span class="kpi-trend positive">Tier 1 Rating</span>
+                </div>
+                <div class="kpi-subtext">Zero brand critical infractions</div>
+              </div>
+            </div>
+
+            <!-- Interactive Visual Charts Row -->
+            <div class="charts-row">
+              <!-- Revenue Growth Chart Card -->
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <div>
+                    <h3 class="card-title">Network Revenue & Royalty Inflow</h3>
+                    <p class="card-subtitle">Monthly aggregate gross sales with calculated franchisor royalty yield.</p>
+                  </div>
+                  <div class="chart-filters" id="overview-chart-filters">
+                    <button class="filter-pill active" onclick="updateOverviewChart('30D')">30 Days</button>
+                    <button class="filter-pill" onclick="updateOverviewChart('3M')">3 Months</button>
+                    <button class="filter-pill" onclick="updateOverviewChart('6M')">6 Months</button>
+                    <button class="filter-pill" onclick="updateOverviewChart('1Y')">1 Year</button>
+                  </div>
+                </div>
+                <!-- Interactive High-Performance Custom SVG Chart Canvas -->
+                <div class="chart-container" id="overview-revenue-chart">
+                  <!-- Dynamically rendered via JS -->
+                </div>
+                <div class="chart-legend">
+                  <span class="legend-item"><span class="legend-dot cyan"></span> Gross Network Revenue ($)</span>
+                  <span class="legend-item"><span class="legend-dot green"></span> Accrued HQ Royalties ($)</span>
+                </div>
+              </div>
+
+              <!-- Top Franchises Bar / Performance Card -->
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <div>
+                    <h3 class="card-title">Top Franchise Territory Contribution</h3>
+                    <p class="card-subtitle">Performance breakdown by regional hub volume.</p>
+                  </div>
+                  <button class="btn btn-sm btn-outline" onclick="navigateToView('locations')">View All</button>
+                </div>
+                <div class="franchise-mini-rankings" id="overview-franchise-rankings">
+                  <!-- Injected via JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Operational Split (Recent Transactions & High Priority Actions) -->
+            <div class="overview-bottom-grid">
+              <!-- Recent Live Transactions Table -->
+              <div class="card">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-title">Recent Network Transactions</h3>
+                    <p class="card-subtitle">Real-time point-of-sale settlements and fees.</p>
+                  </div>
+                  <button class="btn btn-sm btn-outline" onclick="navigateToView('sales')">Sales Log &rarr;</button>
+                </div>
+                <div class="table-responsive">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Transaction ID</th>
+                        <th>Franchise Location</th>
+                        <th>Customer / Order</th>
+                        <th>Amount</th>
+                        <th>Royalty Fee</th>
+                        <th>Status</th>
+                        <th>Time</th>
+                      </tr>
+                    </thead>
+                    <tbody id="overview-transactions-tbody">
+                      <!-- Injected via JS -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Quick Hub & System Alerts -->
+              <div class="card">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-title">Operational Attention Required</h3>
+                    <p class="card-subtitle">System notifications needing executive sign-off.</p>
+                  </div>
+                </div>
+                <div class="alerts-stack" id="overview-alerts-stack">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 2: FRANCHISE LOCATIONS MANAGEMENT       -->
+          <!-- ============================================ -->
+          <div id="view-locations" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Franchise Locations Network</h1>
+                <p class="view-subtitle">Manage, audit, and configure authorized franchise branches across all regions.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-outline btn-sm" onclick="exportDataReport('locations')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export Locations</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openAddFranchiseModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Add New Franchise</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Locations Filter & Search Bar -->
+            <div class="filter-toolbar">
+              <div class="search-input-box toolbar-search">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="locations-search-input" placeholder="Search by location name, city, or manager..." oninput="filterLocations()">
+              </div>
+              <div class="toolbar-controls">
+                <label for="locations-status-filter" class="sr-only">Filter by Status</label>
+                <select id="locations-status-filter" class="form-select sm" onchange="filterLocations()">
+                  <option value="ALL">All Statuses</option>
+                  <option value="Active">Active</option>
+                  <option value="Under Review">Under Review</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Suspended">Suspended</option>
+                </select>
+                <label for="locations-sort-filter" class="sr-only">Sort by</label>
+                <select id="locations-sort-filter" class="form-select sm" onchange="filterLocations()">
+                  <option value="revenue-desc">Highest Revenue</option>
+                  <option value="revenue-asc">Lowest Revenue</option>
+                  <option value="score-desc">Highest Quality Score</option>
+                  <option value="name-asc">Name (A-Z)</option>
+                </select>
+                <div class="view-toggle-btns">
+                  <button class="view-btn active" id="btn-loc-cards" onclick="setLocationsLayout('grid')" title="Card View">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                  </button>
+                  <button class="view-btn" id="btn-loc-table" onclick="setLocationsLayout('table')" title="Table View">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Locations Dynamic Container (Cards or Table) -->
+            <div id="locations-cards-container" class="locations-cards-grid">
+              <!-- Rendered via JS -->
+            </div>
+
+            <div id="locations-table-container" class="card hidden">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Franchise Entity</th>
+                      <th>Location / City</th>
+                      <th>Assigned Manager</th>
+                      <th>Monthly Revenue</th>
+                      <th>Staff</th>
+                      <th>Quality Score</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="locations-table-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 3: PERFORMANCE & ANALYTICS              -->
+          <!-- ============================================ -->
+          <div id="view-performance" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Network Performance Analytics</h1>
+                <p class="view-subtitle">High-resolution metrics tracking growth, margin ratios, and territory benchmarks.</p>
+              </div>
+              <div class="view-header-actions">
+                <div class="time-range-group" id="analytics-timerange-group">
+                  <button class="filter-pill" onclick="setAnalyticsRange('Today')">Today</button>
+                  <button class="filter-pill" onclick="setAnalyticsRange('7D')">7 Days</button>
+                  <button class="filter-pill active" onclick="setAnalyticsRange('30D')">30 Days</button>
+                  <button class="filter-pill" onclick="setAnalyticsRange('3M')">3 Months</button>
+                  <button class="filter-pill" onclick="setAnalyticsRange('6M')">6 Months</button>
+                  <button class="filter-pill" onclick="setAnalyticsRange('1Y')">1 Year</button>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                  <span>Print Dossier</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Analytics Top Metrics -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <span class="kpi-label">Network Gross Margin</span>
+                <div class="kpi-val-row"><span class="kpi-value text-green">68.2%</span><span class="kpi-trend positive">+2.1%</span></div>
+                <div class="kpi-subtext">Avg food/beverage COGS: 31.8%</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Average Unit Volume (AUV)</span>
+                <div class="kpi-val-row"><span class="kpi-value text-cyan">$119,775</span><span class="kpi-trend positive">Strong</span></div>
+                <div class="kpi-subtext">Top unit: $148,200 (Austin)</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Labor Efficiency Index</span>
+                <div class="kpi-val-row"><span class="kpi-value text-purple">94.8%</span><span class="kpi-trend positive">+3.4%</span></div>
+                <div class="kpi-subtext">Optimal shift compliance</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Franchise Retention Rate</span>
+                <div class="kpi-val-row"><span class="kpi-value text-cyan">98.5%</span><span class="kpi-trend positive">Benchmark</span></div>
+                <div class="kpi-subtext">Zero voluntary defaults</div>
+              </div>
+            </div>
+
+            <!-- Deep Charts Grid -->
+            <div class="charts-row">
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <div>
+                    <h3 class="card-title">Network Growth Trajectory</h3>
+                    <p class="card-subtitle">Aggregate gross revenue vs. network operating expenditure.</p>
+                  </div>
+                </div>
+                <div class="chart-container" id="analytics-growth-chart"></div>
+              </div>
+
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <div>
+                    <h3 class="card-title">Territory Revenue Comparison</h3>
+                    <p class="card-subtitle">Normalized branch sales across current filter cycle.</p>
+                  </div>
+                </div>
+                <div class="chart-container" id="analytics-bar-chart"></div>
+              </div>
+            </div>
+
+            <!-- Expense & Royalty Distribution Matrix -->
+            <div class="charts-row">
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <h3 class="card-title">Network Cost Breakdown (COGS, Labor, Royalty, Tech)</h3>
+                </div>
+                <div class="distribution-bars-wrap" id="analytics-distribution-bars">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <h3 class="card-title">Customer Satisfaction (CSAT) vs Network Standard</h3>
+                </div>
+                <div class="csat-grid-display" id="analytics-csat-display">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 4: SALES MANAGEMENT                     -->
+          <!-- ============================================ -->
+          <div id="view-sales" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Sales Management & Register Stream</h1>
+                <p class="view-subtitle">Real-time consolidated point-of-sale transactions and product performance.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-outline btn-sm" onclick="exportDataReport('sales')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export Sales CSV</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openAddTransactionModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Record Transaction</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sales Summary Strip -->
+            <div class="kpi-grid four-col">
+              <div class="kpi-card">
+                <span class="kpi-label">Today's Live Sales</span>
+                <div class="kpi-val-row"><span class="kpi-value text-green" id="sales-today-val">$24,910</span><span class="kpi-trend positive">+12%</span></div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Avg Transaction Value</span>
+                <div class="kpi-val-row"><span class="kpi-value text-cyan">$26.45</span><span class="kpi-trend positive">+$1.20</span></div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Gross Margin</span>
+                <div class="kpi-val-row"><span class="kpi-value text-purple">69.4%</span><span class="kpi-trend positive">Healthy</span></div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Cash vs Digital Pay</span>
+                <div class="kpi-val-row"><span class="kpi-value">91% Card/App</span><span class="kpi-trend neutral">9% Cash</span></div>
+              </div>
+            </div>
+
+            <!-- Sales Filter Bar -->
+            <div class="filter-toolbar">
+              <div class="search-input-box toolbar-search">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="sales-search-input" placeholder="Search order ID, location, or customer..." oninput="filterSales()">
+              </div>
+              <div class="toolbar-controls">
+                <label for="sales-location-filter" class="sr-only">Filter by Location</label>
+                <select id="sales-location-filter" class="form-select sm" onchange="filterSales()">
+                  <option value="ALL">All Franchise Branches</option>
+                  <!-- Injected via JS -->
+                </select>
+                <label for="sales-status-filter" class="sr-only">Filter by Status</label>
+                <select id="sales-status-filter" class="form-select sm" onchange="filterSales()">
+                  <option value="ALL">All Statuses</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Processing">Processing</option>
+                  <option value="Refunded">Refunded</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Sales Transactions Table -->
+            <div class="card">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Invoice / Order</th>
+                      <th>Franchise Location</th>
+                      <th>Customer Details</th>
+                      <th>Category / Items</th>
+                      <th>Gross Amount</th>
+                      <th>Royalty (6%)</th>
+                      <th>Status</th>
+                      <th>Timestamp</th>
+                      <th>Receipt</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sales-table-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 5: FINANCES & ROYALTIES                 -->
+          <!-- ============================================ -->
+          <div id="view-finance" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Financials & Royalty Ledger</h1>
+                <p class="view-subtitle">Consolidated franchisor fee settlements, royalty deductions, and accounts receivable.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-outline btn-sm" onclick="exportDataReport('royalties')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export Royalty Ledger</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openAddTransactionModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                  <span>+ Record Fee / Debit</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Financial Summary Metric Cards -->
+            <div class="kpi-grid four-col">
+              <div class="kpi-card">
+                <span class="kpi-label">Gross Network Volume</span>
+                <div class="kpi-val-row"><span class="kpi-value text-cyan" id="fin-gross-vol">$718,650</span></div>
+                <div class="kpi-subtext">Current billing cycle</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Collected Royalties</span>
+                <div class="kpi-val-row"><span class="kpi-value text-green" id="fin-collected-royalty">$33,120</span></div>
+                <div class="kpi-subtext">Settled via ACH Direct</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Pending Royalty Inflow</span>
+                <div class="kpi-val-row"><span class="kpi-value text-amber" id="fin-pending-royalty">$9,999</span></div>
+                <div class="kpi-subtext">2 branches due this Friday</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">National Ad Fund Pool</span>
+                <div class="kpi-val-row"><span class="kpi-value text-purple" id="fin-adfund-pool">$14,373</span></div>
+                <div class="kpi-subtext">2.0% allocated marketing</div>
+              </div>
+            </div>
+
+            <!-- Dedicated Royalty Management Table -->
+            <div class="card mb-4">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Franchise Royalty Schedule & Status</h3>
+                  <p class="card-subtitle">Monthly breakdown per territory with automatic collection status.</p>
+                </div>
+                <button class="btn btn-sm btn-outline" onclick="triggerBatchRoyaltyCollection()">Trigger Automated ACH Debit</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Franchise Entity</th>
+                      <th>Location Territory</th>
+                      <th>Cycle Revenue</th>
+                      <th>Royalty %</th>
+                      <th>Royalty Amount</th>
+                      <th>Ad Fund (2%)</th>
+                      <th>Due Date</th>
+                      <th>Payment Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="royalty-schedule-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- General Ledger Table -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Institutional Financial Ledger</h3>
+                  <p class="card-subtitle">Complete chronological history of payments, royalties, supply sales, and adjustments.</p>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Reference ID</th>
+                      <th>Franchise Location</th>
+                      <th>Entry Description</th>
+                      <th>Type</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="finance-ledger-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 6: STAFF & EMPLOYEES                    -->
+          <!-- ============================================ -->
+          <div id="view-employees" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Staff & Manager Directory</h1>
+                <p class="view-subtitle">Manage regional general managers, shift supervisors, barista/cook personnel, and certifications.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-outline btn-sm" onclick="exportDataReport('employees')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export Staff CSV</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openAddEmployeeModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Add Employee</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Employees Filter Bar -->
+            <div class="filter-toolbar">
+              <div class="search-input-box toolbar-search">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="employee-search-input" placeholder="Search staff name, email, or role..." oninput="filterEmployees()">
+              </div>
+              <div class="toolbar-controls">
+                <label for="employee-loc-filter" class="sr-only">Filter by Location</label>
+                <select id="employee-loc-filter" class="form-select sm" onchange="filterEmployees()">
+                  <option value="ALL">All Franchise Branches</option>
+                  <!-- Injected via JS -->
+                </select>
+                <label for="employee-role-filter" class="sr-only">Filter by Position</label>
+                <select id="employee-role-filter" class="form-select sm" onchange="filterEmployees()">
+                  <option value="ALL">All Roles</option>
+                  <option value="General Manager">General Manager</option>
+                  <option value="Shift Supervisor">Shift Supervisor</option>
+                  <option value="Operations Specialist">Operations Specialist</option>
+                  <option value="Front Team / Cashier">Front Team / Cashier</option>
+                  <option value="Kitchen / Culinary Lead">Kitchen / Culinary Lead</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Employee Grid Display -->
+            <div class="employees-grid" id="employees-cards-container">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 7: INVENTORY MANAGEMENT                 -->
+          <!-- ============================================ -->
+          <div id="view-inventory" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Supply Chain & Inventory Management</h1>
+                <p class="view-subtitle">Central approved commissary catalog, local stock monitoring, and low-level warning thresholds.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-outline btn-sm" onclick="exportDataReport('inventory')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export Inventory CSV</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openAddProductModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Add Inventory SKU</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Inventory Top Metric Cards -->
+            <div class="kpi-grid four-col">
+              <div class="kpi-card">
+                <span class="kpi-label">Total Catalog SKUs</span>
+                <div class="kpi-val-row"><span class="kpi-value text-cyan" id="inv-total-skus">16</span></div>
+                <div class="kpi-subtext">Approved brand vendor items</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Healthy Stock Levels</span>
+                <div class="kpi-val-row"><span class="kpi-value text-green" id="inv-healthy-skus">13</span></div>
+                <div class="kpi-subtext">&gt; Safety stock minimum</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Low Stock Alerts</span>
+                <div class="kpi-val-row"><span class="kpi-value text-danger" id="inv-low-skus">3 SKUs</span></div>
+                <div class="kpi-subtext">Requires automated restock</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Total Inventory Valuation</span>
+                <div class="kpi-val-row"><span class="kpi-value text-purple" id="inv-valuation">$168,450</span></div>
+                <div class="kpi-subtext">Network aggregate cost basis</div>
+              </div>
+            </div>
+
+            <!-- Inventory Filter Bar -->
+            <div class="filter-toolbar">
+              <div class="search-input-box toolbar-search">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="inventory-search-input" placeholder="Search SKU, item name, or category..." oninput="filterInventory()">
+              </div>
+              <div class="toolbar-controls">
+                <label for="inventory-category-filter" class="sr-only">Filter by Category</label>
+                <select id="inventory-category-filter" class="form-select sm" onchange="filterInventory()">
+                  <option value="ALL">All Categories</option>
+                  <option value="Food Ingredients">Food Ingredients</option>
+                  <option value="Packaging & Cups">Packaging & Cups</option>
+                  <option value="Beverage Supply">Beverage Supply</option>
+                  <option value="Merchandise">Merchandise</option>
+                  <option value="Cleaning & Sanitation">Cleaning & Sanitation</option>
+                </select>
+                <label for="inventory-stock-filter" class="sr-only">Filter by Stock Status</label>
+                <select id="inventory-stock-filter" class="form-select sm" onchange="filterInventory()">
+                  <option value="ALL">All Stock Statuses</option>
+                  <option value="In Stock">In Stock Only</option>
+                  <option value="Low Stock">Low Stock (< 25 units)</option>
+                  <option value="Out of Stock">Out of Stock</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Products Table -->
+            <div class="card">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Product / SKU</th>
+                      <th>Category</th>
+                      <th>Location / Commissary</th>
+                      <th>Unit Price</th>
+                      <th>Current Units</th>
+                      <th>Status</th>
+                      <th>Quick Stock Adjust</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="inventory-table-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 8: TASKS & AUDIT MANAGEMENT             -->
+          <!-- ============================================ -->
+          <div id="view-tasks" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Operational Tasks & Inspection Audits</h1>
+                <p class="view-subtitle">Coordinate network health inspections, compliance remediation, and territorial deadlines.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-outline btn-sm" onclick="exportDataReport('tasks')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export Tasks</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openAddTaskModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Create Task</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Task Status Filter Strip -->
+            <div class="filter-toolbar">
+              <div class="search-input-box toolbar-search">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="task-search-input" placeholder="Search tasks by title, location, or assignee..." oninput="filterTasks()">
+              </div>
+              <div class="toolbar-controls">
+                <label for="task-priority-filter" class="sr-only">Filter by Priority</label>
+                <select id="task-priority-filter" class="form-select sm" onchange="filterTasks()">
+                  <option value="ALL">All Priorities</option>
+                  <option value="Urgent">Urgent</option>
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+                <div class="view-toggle-btns">
+                  <button class="view-btn active" id="btn-task-kanban" onclick="setTasksViewMode('kanban')" title="Kanban Board">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="5" height="18" rx="1"></rect><rect x="10" y="3" width="5" height="12" rx="1"></rect><rect x="17" y="3" width="5" height="15" rx="1"></rect></svg>
+                  </button>
+                  <button class="view-btn" id="btn-task-list" onclick="setTasksViewMode('list')" title="List View">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kanban Board Container -->
+            <div id="tasks-kanban-view" class="kanban-board">
+              <!-- 4 Columns: To Do, In Progress, Review, Completed -->
+              <div class="kanban-col" data-status="To Do">
+                <div class="kanban-col-header">
+                  <span class="col-title"><span class="col-dot gray"></span> To Do</span>
+                  <span class="col-count" id="count-todo">0</span>
+                </div>
+                <div class="kanban-cards-stack" id="kanban-stack-todo"></div>
+              </div>
+
+              <div class="kanban-col" data-status="In Progress">
+                <div class="kanban-col-header">
+                  <span class="col-title"><span class="col-dot cyan"></span> In Progress</span>
+                  <span class="col-count" id="count-inprogress">0</span>
+                </div>
+                <div class="kanban-cards-stack" id="kanban-stack-inprogress"></div>
+              </div>
+
+              <div class="kanban-col" data-status="Review">
+                <div class="kanban-col-header">
+                  <span class="col-title"><span class="col-dot amber"></span> Compliance Review</span>
+                  <span class="col-count" id="count-review">0</span>
+                </div>
+                <div class="kanban-cards-stack" id="kanban-stack-review"></div>
+              </div>
+
+              <div class="kanban-col" data-status="Completed">
+                <div class="kanban-col-header">
+                  <span class="col-title"><span class="col-dot green"></span> Completed</span>
+                  <span class="col-count" id="count-completed">0</span>
+                </div>
+                <div class="kanban-cards-stack" id="kanban-stack-completed"></div>
+              </div>
+            </div>
+
+            <!-- Tasks List View (Alternate) -->
+            <div id="tasks-list-view" class="card hidden">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Task Title</th>
+                      <th>Franchise Location</th>
+                      <th>Priority</th>
+                      <th>Assignee</th>
+                      <th>Due Date</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tasks-table-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 9: DOCUMENT MANAGEMENT                  -->
+          <!-- ============================================ -->
+          <div id="view-documents" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Franchise Document Vault</h1>
+                <p class="view-subtitle">Store FDD disclosures, territorial lease contracts, compliance manuals, and health licenses.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-primary btn-sm" onclick="openUploadDocModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Upload Document</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Documents Filter & Categories -->
+            <div class="filter-toolbar">
+              <div class="search-input-box toolbar-search">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="doc-search-input" placeholder="Search documents by title or entity..." oninput="filterDocuments()">
+              </div>
+              <div class="toolbar-controls">
+                <label for="doc-category-filter" class="sr-only">Filter by Category</label>
+                <select id="doc-category-filter" class="form-select sm" onchange="filterDocuments()">
+                  <option value="ALL">All Categories</option>
+                  <option value="Franchise Agreements">Franchise Agreements</option>
+                  <option value="Legal & Compliance">Legal & Compliance</option>
+                  <option value="Financial Audits">Financial Audits</option>
+                  <option value="Operational Manuals">Operational Manuals</option>
+                  <option value="Training & Safety">Training & Safety</option>
+                  <option value="Marketing Assets">Marketing Assets</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Documents Grid -->
+            <div class="documents-grid" id="documents-container">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 10: MARKETING CENTER                    -->
+          <!-- ============================================ -->
+          <div id="view-marketing" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Network Marketing & Brand Campaigns</h1>
+                <p class="view-subtitle">Coordinate national ad funds, co-op promotional kits, and local store marketing (LSM).</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-primary btn-sm" onclick="openAddCampaignModal()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Launch Campaign</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Marketing KPI Row -->
+            <div class="kpi-grid four-col">
+              <div class="kpi-card">
+                <span class="kpi-label">Active National Campaigns</span>
+                <div class="kpi-val-row"><span class="kpi-value text-cyan">4 Live</span></div>
+                <div class="kpi-subtext">Omnichannel distribution</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">National Ad Budget Spent</span>
+                <div class="kpi-val-row"><span class="kpi-value text-green">$38,200</span></div>
+                <div class="kpi-subtext">Funded from 2% ad royalties</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Local Store Impressions</span>
+                <div class="kpi-val-row"><span class="kpi-value text-purple">1.42M</span><span class="kpi-trend positive">+24%</span></div>
+                <div class="kpi-subtext">Geotargeted mobile & search</div>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Campaign ROI Multiplier</span>
+                <div class="kpi-val-row"><span class="kpi-value text-cyan">4.8x</span></div>
+                <div class="kpi-subtext">Return on ad spend (ROAS)</div>
+              </div>
+            </div>
+
+            <!-- Active Campaigns Cards -->
+            <div class="campaigns-grid" id="campaigns-container">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 11: BRANCH MESSAGING & COMMUNICATIONS  -->
+          <!-- ============================================ -->
+          <div id="view-messages" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Branch Communications & Field Dispatch</h1>
+                <p class="view-subtitle">Direct, audited messaging between headquarters and regional franchise managers.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-primary btn-sm" onclick="showToast('New broadcast announcement opened', 'info')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  <span>Broadcast to All Units</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="messaging-workspace">
+              <!-- Channel / Conversations List -->
+              <div class="messages-sidebar">
+                <div class="search-input-box sm">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="message-channel-search" placeholder="Search conversations..." oninput="filterChannels()">
+                </div>
+                <div class="channel-list" id="messaging-channels-container">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Message Conversation Thread -->
+              <div class="message-thread-panel">
+                <div class="thread-header" id="thread-header-info">
+                  <div class="thread-title-wrap">
+                    <h4 id="active-thread-title"># Austin Flagship - Operations</h4>
+                    <span class="status-chip live"><span class="pulse-dot-sm"></span> Marcus Vance (Online)</span>
+                  </div>
+                  <div class="thread-actions">
+                    <button class="btn btn-sm btn-outline" onclick="showToast('Territory audit packet dispatched to branch', 'success')">Dispatch Audit Checklist</button>
+                  </div>
+                </div>
+
+                <div class="thread-messages-body" id="thread-messages-body">
+                  <!-- Injected via JS -->
+                </div>
+
+                <div class="thread-input-box">
+                  <input type="text" id="chat-input-field" placeholder="Type a secure directive or memo... (Press Enter to send)" onkeydown="handleChatInput(event)">
+                  <button class="btn btn-primary btn-sm" onclick="sendActiveMessage()">Send Direct</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 12: EXECUTIVE REPORTS & AUDITING        -->
+          <!-- ============================================ -->
+          <div id="view-reports" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">Executive Reports & Compliance Audits</h1>
+                <p class="view-subtitle">Generate regulatory filings, profit & loss summaries, and franchise disclosures.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-outline btn-sm" onclick="window.print()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                  <span>Print Dossier</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="exportDataReport('custom')">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Generate Report</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Report Configuration Form Card -->
+            <div class="card mb-4">
+              <div class="card-header">
+                <h3 class="card-title">Configurable Report Generator</h3>
+                <p class="card-subtitle">Select report specifications to generate instant enterprise tables.</p>
+              </div>
+              <div class="report-generator-form">
+                <div class="form-group">
+                  <label for="report-type-select">Report Scope & Classification</label>
+                  <select id="report-type-select" class="form-select" onchange="generateDynamicReport()">
+                    <option value="network-performance">Franchise Network Comprehensive Performance</option>
+                    <option value="royalty-reconciliation">Royalty Collections & ACH Audit</option>
+                    <option value="pos-sales">Point-of-Sale Transaction Audit</option>
+                    <option value="inventory-cogs">Commissary Supply & Inventory COGS</option>
+                    <option value="staff-compliance">Staff Shift & Compliance Record</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="report-location-select">Target Franchise Entity</label>
+                  <select id="report-location-select" class="form-select" onchange="generateDynamicReport()">
+                    <option value="ALL">All Network Locations (Consolidated)</option>
+                    <!-- Injected via JS -->
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="report-cycle-select">Reporting Cycle Range</label>
+                  <select id="report-cycle-select" class="form-select" onchange="generateDynamicReport()">
+                    <option value="30D">Last 30 Days (Current Cycle)</option>
+                    <option value="Q3">Q3 2026</option>
+                    <option value="Q2">Q2 2026</option>
+                    <option value="YTD">Year-to-Date 2026</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Report Preview Section -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title" id="report-preview-title">Consolidated Network Performance Report</h3>
+                  <p class="card-subtitle" id="report-preview-meta">Generated for All Franchise Locations • Sept 2026</p>
+                </div>
+                <button class="btn btn-sm btn-primary" onclick="exportDataReport('preview')">Download CSV Dataset</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table" id="report-preview-table">
+                  <thead id="report-preview-thead">
+                    <!-- Injected via JS -->
+                  </thead>
+                  <tbody id="report-preview-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- VIEW 13: SYSTEM SETTINGS & GOVERNANCE        -->
+          <!-- ============================================ -->
+          <div id="view-settings" class="app-view">
+            <div class="view-header">
+              <div>
+                <h1 class="view-title">System Settings & Network Governance</h1>
+                <p class="view-subtitle">Configure organization entity data, default royalty benchmarks, security parameters, and data state.</p>
+              </div>
+              <div class="view-header-actions">
+                <button class="btn btn-primary btn-sm" onclick="saveSystemSettings()">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                  <span>Save Changes</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Settings Tabs Layout -->
+            <div class="settings-grid">
+              <!-- Settings Menu Navigation -->
+              <div class="settings-menu card">
+                <button class="settings-nav-btn active" onclick="switchSettingsTab('general')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  <span>Franchise Network Policy</span>
+                </button>
+                <button class="settings-nav-btn" onclick="switchSettingsTab('security')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span>Role Permissions & Access</span>
+                </button>
+                <button class="settings-nav-btn" onclick="switchSettingsTab('notifications')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                  <span>Automated Alerts</span>
+                </button>
+                <button class="settings-nav-btn" onclick="switchSettingsTab('data')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                  <span>Demo Data Management</span>
+                </button>
+              </div>
+
+              <!-- Settings Content Panels -->
+              <div class="settings-content card">
+                <!-- Tab 1: General Policy -->
+                <div id="tab-settings-general" class="settings-tab-panel active">
+                  <h3 class="panel-title">Franchise Network Parameters</h3>
+                  <p class="panel-desc">Global policy defaults applied to newly registered territories.</p>
+
+                  <div class="form-grid">
+                    <div class="form-group">
+                      <label for="set-company-name">Holding Parent Entity</label>
+                      <input type="text" id="set-company-name" class="form-input" value="FranchiseFlow Global Brands Inc.">
+                    </div>
+                    <div class="form-group">
+                      <label for="set-default-royalty">Default Royalty Rate (%)</label>
+                      <input type="number" id="set-default-royalty" class="form-input" step="0.1" value="6.0">
+                    </div>
+                    <div class="form-group">
+                      <label for="set-adfund-rate">National Ad Fund Rate (%)</label>
+                      <input type="number" id="set-adfund-rate" class="form-input" step="0.1" value="2.0">
+                    </div>
+                    <div class="form-group">
+                      <label for="set-royalty-cycle">Royalty Settlement Frequency</label>
+                      <select id="set-royalty-cycle" class="form-select">
+                        <option value="Weekly ACH">Weekly ACH Auto-Debit</option>
+                        <option value="Bi-Weekly ACH">Bi-Weekly ACH Auto-Debit</option>
+                        <option value="Monthly Close">Monthly Net-10 Close</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="set-currency">Operational Currency</label>
+                      <select id="set-currency" class="form-select">
+                        <option value="USD">USD ($) - United States Dollar</option>
+                        <option value="EUR">EUR (€) - Eurozone</option>
+                        <option value="GBP">GBP (£) - British Pound</option>
+                        <option value="CAD">CAD ($) - Canadian Dollar</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="set-lowstock-threshold">Default Safety Low Stock Trigger</label>
+                      <input type="number" id="set-lowstock-threshold" class="form-input" value="20">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tab 2: Security & Roles -->
+                <div id="tab-settings-security" class="settings-tab-panel">
+                  <h3 class="panel-title">Enterprise Role-Based Access Control (RBAC)</h3>
+                  <p class="panel-desc">Configure security clearance tiers across franchisor and franchisee staff.</p>
+
+                  <div class="roles-table-wrap">
+                    <table class="data-table">
+                      <thead>
+                        <tr>
+                          <th>Role Tier</th>
+                          <th>Locations Scope</th>
+                          <th>Financial Access</th>
+                          <th>Staff Management</th>
+                          <th>Vault Docs</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Super Admin</strong></td>
+                          <td><span class="badge-pill sm green">All Hubs</span></td>
+                          <td><span class="badge-pill sm green">Full Ledger</span></td>
+                          <td><span class="badge-pill sm green">Full Control</span></td>
+                          <td><span class="badge-pill sm green">All Vaults</span></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Franchise Owner</strong></td>
+                          <td><span class="badge-pill sm blue">Owned Hubs</span></td>
+                          <td><span class="badge-pill sm blue">Branch P&L</span></td>
+                          <td><span class="badge-pill sm blue">Branch Staff</span></td>
+                          <td><span class="badge-pill sm blue">Branch Docs</span></td>
+                        </tr>
+                        <tr>
+                          <td><strong>General Manager</strong></td>
+                          <td><span class="badge-pill sm cyan">Assigned Unit</span></td>
+                          <td><span class="badge-pill sm amber">Register Only</span></td>
+                          <td><span class="badge-pill sm cyan">Shift Staff</span></td>
+                          <td><span class="badge-pill sm amber">SOPs Only</span></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Field Staff</strong></td>
+                          <td><span class="badge-pill sm gray">Single Unit</span></td>
+                          <td><span class="badge-pill sm red">Restricted</span></td>
+                          <td><span class="badge-pill sm red">Restricted</span></td>
+                          <td><span class="badge-pill sm amber">Training Docs</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="security-toggles mt-4">
+                    <div class="toggle-row">
+                      <div>
+                        <strong>Two-Factor Authentication (2FA)</strong>
+                        <p class="text-muted text-xs">Require hardware/authenticator token on all franchise logins.</p>
+                      </div>
+                      <input type="checkbox" id="set-2fa-toggle" checked class="form-toggle">
+                    </div>
+                    <div class="toggle-row mt-3">
+                      <div>
+                        <strong>Automated Audit Trail Logging</strong>
+                        <p class="text-muted text-xs">Record immutable JSON log of every royalty modification.</p>
+                      </div>
+                      <input type="checkbox" id="set-audit-toggle" checked class="form-toggle">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tab 3: Notifications -->
+                <div id="tab-settings-notifications" class="settings-tab-panel">
+                  <h3 class="panel-title">Automated Network Alerts</h3>
+                  <p class="panel-desc">Dispatch proactive triggers to regional managers.</p>
+
+                  <div class="notification-options">
+                    <div class="toggle-row">
+                      <div>
+                        <strong>Low Stock Commissary Alerts</strong>
+                        <p class="text-muted text-xs">Alert HQ commissary when any branch stock drops below safety limit.</p>
+                      </div>
+                      <input type="checkbox" id="notif-stock-toggle" checked class="form-toggle">
+                    </div>
+                    <div class="toggle-row mt-3">
+                      <div>
+                        <strong>Royalty Due Reminders (ACH 48-Hour Notice)</strong>
+                        <p class="text-muted text-xs">Automated electronic statement dispatched before bank debit.</p>
+                      </div>
+                      <input type="checkbox" id="notif-royalty-toggle" checked class="form-toggle">
+                    </div>
+                    <div class="toggle-row mt-3">
+                      <div>
+                        <strong>Quality Inspection Infraction Alerts</strong>
+                        <p class="text-muted text-xs">Notify VP of Operations immediately when quality audit score is below 90%.</p>
+                      </div>
+                      <input type="checkbox" id="notif-quality-toggle" checked class="form-toggle">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tab 4: Demo Data Management -->
+                <div id="tab-settings-data" class="settings-tab-panel">
+                  <h3 class="panel-title">Demo State & LocalStorage Management</h3>
+                  <p class="panel-desc">Export client presentation state or restore the baseline enterprise seed dataset.</p>
+
+                  <div class="data-actions-card">
+                    <div class="data-action-item">
+                      <div>
+                        <strong>Export Current Database (JSON)</strong>
+                        <p class="text-muted text-xs">Download complete state including modified franchises, inventory, and staff.</p>
+                      </div>
+                      <button class="btn btn-outline btn-sm" onclick="exportDataReport('backup-json')">Export JSON</button>
+                    </div>
+                    <div class="data-action-item mt-3">
+                      <div>
+                        <strong>Reset to Default Enterprise Seed Data</strong>
+                        <p class="text-muted text-xs">Restore original 6 franchise locations, demo staff, tasks, and financials.</p>
+                      </div>
+                      <button class="btn btn-danger btn-sm" onclick="resetDemoData()">Reset Demo Data</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL SYSTEM (Lightweight, fully accessible, reusable enterprise modals)  -->
+  <!-- ========================================================================= -->
+
+  <!-- MODAL 1: ADD / EDIT FRANCHISE LOCATION -->
+  <div id="modal-franchise" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-franchise')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-franchise-title">Register New Franchise Location</h3>
+        <button class="modal-close-btn" onclick="closeModal('modal-franchise')" aria-label="Close">&times;</button>
+      </div>
+      <form id="form-franchise" onsubmit="handleFranchiseSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="franchise-id">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="franchise-name">Franchise Entity Name *</label>
+              <input type="text" id="franchise-name" class="form-input" placeholder="e.g. FranchiseFlow Austin Flagship" required>
+            </div>
+            <div class="form-group">
+              <label for="franchise-city">City & Territory *</label>
+              <input type="text" id="franchise-city" class="form-input" placeholder="e.g. Austin, TX" required>
+            </div>
+            <div class="form-group">
+              <label for="franchise-manager">General Manager *</label>
+              <input type="text" id="franchise-manager" class="form-input" placeholder="e.g. Marcus Vance" required>
+            </div>
+            <div class="form-group">
+              <label for="franchise-phone">Manager Contact Phone</label>
+              <input type="text" id="franchise-phone" class="form-input" placeholder="e.g. (512) 555-0192">
+            </div>
+            <div class="form-group">
+              <label for="franchise-email">Manager Corporate Email *</label>
+              <input type="email" id="franchise-email" class="form-input" placeholder="e.g. m.vance@franchiseflow.io" required>
+            </div>
+            <div class="form-group">
+              <label for="franchise-status">Operational Status</label>
+              <select id="franchise-status" class="form-select">
+                <option value="Active">Active & Operating</option>
+                <option value="Under Review">Under Review</option>
+                <option value="Pending">Pending Grand Opening</option>
+                <option value="Suspended">Suspended</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="franchise-revenue">Est. Monthly Revenue ($)</label>
+              <input type="number" id="franchise-revenue" class="form-input" placeholder="e.g. 125000" min="0" required>
+            </div>
+            <div class="form-group">
+              <label for="franchise-employees">Staff Count</label>
+              <input type="number" id="franchise-employees" class="form-input" placeholder="e.g. 14" min="1" required>
+            </div>
+            <div class="form-group">
+              <label for="franchise-score">Quality Score (%)</label>
+              <input type="number" id="franchise-score" class="form-input" placeholder="e.g. 96" min="0" max="100" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-franchise')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-franchise">Save Location</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: DETAILED FRANCHISE PROFILE VIEW -->
+  <div id="modal-franchise-profile" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-franchise-profile')">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="profile-modal-name">Franchise Territory Dossier</h3>
+          <span class="status-chip live" id="profile-modal-status">Active</span>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-franchise-profile')" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body profile-modal-content">
+        <!-- Header Key Figures -->
+        <div class="profile-header-summary">
+          <div class="profile-stat-col">
+            <span class="lbl">City / Region</span>
+            <strong id="profile-stat-city">Austin, TX</strong>
+          </div>
+          <div class="profile-stat-col">
+            <span class="lbl">General Manager</span>
+            <strong id="profile-stat-manager">Marcus Vance</strong>
+          </div>
+          <div class="profile-stat-col">
+            <span class="lbl">Monthly Gross Sales</span>
+            <strong class="text-cyan" id="profile-stat-rev">$148,200</strong>
+          </div>
+          <div class="profile-stat-col">
+            <span class="lbl">Quality Audit Score</span>
+            <strong class="text-green" id="profile-stat-score">98.5%</strong>
+          </div>
+          <div class="profile-stat-col">
+            <span class="lbl">Staff On Duty</span>
+            <strong id="profile-stat-staff">16 Active</strong>
+          </div>
+        </div>
+
+        <!-- Profile Multi-Tabs -->
+        <div class="profile-tabs-nav">
+          <button class="profile-tab-btn active" onclick="switchProfileTab('tab-prof-overview')">Territory Overview</button>
+          <button class="profile-tab-btn" onclick="switchProfileTab('tab-prof-sales')">Recent POS Sales</button>
+          <button class="profile-tab-btn" onclick="switchProfileTab('tab-prof-staff')">Assigned Staff</button>
+          <button class="profile-tab-btn" onclick="switchProfileTab('tab-prof-inventory')">Local Inventory</button>
+          <button class="profile-tab-btn" onclick="switchProfileTab('tab-prof-royalties')">Royalty History</button>
+        </div>
+
+        <div class="profile-tabs-viewport">
+          <div id="tab-prof-overview" class="profile-tab-pane active">
+            <div class="profile-overview-grid">
+              <div class="info-block">
+                <h5>Territory Lease & Contact Details</h5>
+                <p><strong>Entity License:</strong> FF-US-2024-001</p>
+                <p><strong>Primary Address:</strong> <span id="profile-det-address">1140 Congress Ave, Suite 200, Austin, TX 78701</span></p>
+                <p><strong>Phone:</strong> <span id="profile-det-phone">(512) 555-0192</span></p>
+                <p><strong>Email:</strong> <span id="profile-det-email">m.vance@franchiseflow.io</span></p>
+                <p><strong>Opening Date:</strong> March 15, 2024 (2.5 yrs operational)</p>
+              </div>
+              <div class="info-block">
+                <h5>Operational Compliance Metrics</h5>
+                <div class="compliance-meter">
+                  <div class="meter-label"><span>Health & Safety Compliance</span><strong>100%</strong></div>
+                  <div class="meter-track"><div class="fill" style="width: 100%"></div></div>
+                </div>
+                <div class="compliance-meter mt-2">
+                  <div class="meter-label"><span>Brand Marketing Kit Adoption</span><strong>94%</strong></div>
+                  <div class="meter-track"><div class="fill" style="width: 94%"></div></div>
+                </div>
+                <div class="compliance-meter mt-2">
+                  <div class="meter-label"><span>Royalty Auto-ACH Settlement</span><strong>Always On-Time</strong></div>
+                  <div class="meter-track"><div class="fill" style="width: 100%; background-color: #10b981"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab-prof-sales" class="profile-tab-pane">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Order ID</th><th>Customer</th><th>Gross Sale</th><th>Royalty (6%)</th><th>Date</th></tr>
+                </thead>
+                <tbody id="profile-sales-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="tab-prof-staff" class="profile-tab-pane">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Name</th><th>Position</th><th>Email</th><th>Rating</th><th>Status</th></tr>
+                </thead>
+                <tbody id="profile-staff-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="tab-prof-inventory" class="profile-tab-pane">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr><th>SKU</th><th>Item Name</th><th>Units Stocked</th><th>Safety Threshold</th><th>Status</th></tr>
+                </thead>
+                <tbody id="profile-inventory-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="tab-prof-royalties" class="profile-tab-pane">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Cycle Period</th><th>Base Revenue</th><th>Royalty Fee</th><th>Ad Fund (2%)</th><th>Status</th></tr>
+                </thead>
+                <tbody id="profile-royalties-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('modal-franchise-profile')">Close Dossier</button>
+        <button type="button" class="btn btn-primary" onclick="editFranchiseFromProfile()">Edit Location Parameters</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: ADD / EDIT EMPLOYEE -->
+  <div id="modal-employee" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-employee')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-employee-title">Add Staff Member</h3>
+        <button class="modal-close-btn" onclick="closeModal('modal-employee')" aria-label="Close">&times;</button>
+      </div>
+      <form id="form-employee" onsubmit="handleEmployeeSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="employee-id">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="emp-name">Full Legal Name *</label>
+              <input type="text" id="emp-name" class="form-input" placeholder="e.g. Elena Rostova" required>
+            </div>
+            <div class="form-group">
+              <label for="emp-email">Corporate Email *</label>
+              <input type="email" id="emp-email" class="form-input" placeholder="e.g. e.rostova@franchiseflow.io" required>
+            </div>
+            <div class="form-group">
+              <label for="emp-phone">Phone Number</label>
+              <input type="text" id="emp-phone" class="form-input" placeholder="e.g. (206) 555-0144">
+            </div>
+            <div class="form-group">
+              <label for="emp-location">Assigned Franchise Location *</label>
+              <select id="emp-location" class="form-select" required>
+                <!-- Injected via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="emp-role">Position / Role *</label>
+              <select id="emp-role" class="form-select" required>
+                <option value="General Manager">General Manager</option>
+                <option value="Shift Supervisor">Shift Supervisor</option>
+                <option value="Operations Specialist">Operations Specialist</option>
+                <option value="Front Team / Cashier">Front Team / Cashier</option>
+                <option value="Kitchen / Culinary Lead">Kitchen / Culinary Lead</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="emp-salary">Annual Salary / Rate ($)</label>
+              <input type="number" id="emp-salary" class="form-input" placeholder="e.g. 68000" min="0">
+            </div>
+            <div class="form-group">
+              <label for="emp-score">Performance Rating (1.0 - 5.0)</label>
+              <input type="number" id="emp-score" class="form-input" placeholder="e.g. 4.9" step="0.1" min="1.0" max="5.0" value="4.8">
+            </div>
+            <div class="form-group">
+              <label for="emp-status">Employment Status</label>
+              <select id="emp-status" class="form-select">
+                <option value="Active">Active On Shift</option>
+                <option value="On Leave">On Leave</option>
+                <option value="Training">In Training</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-employee')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Staff Record</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 4: ADD / EDIT INVENTORY SKU -->
+  <div id="modal-product" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-product')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-product-title">Add Inventory SKU</h3>
+        <button class="modal-close-btn" onclick="closeModal('modal-product')" aria-label="Close">&times;</button>
+      </div>
+      <form id="form-product" onsubmit="handleProductSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="product-id">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="prod-name">Item / Product Name *</label>
+              <input type="text" id="prod-name" class="form-input" placeholder="e.g. Single-Origin Espresso Beans (5lb Case)" required>
+            </div>
+            <div class="form-group">
+              <label for="prod-sku">SKU Code *</label>
+              <input type="text" id="prod-sku" class="form-input" placeholder="e.g. SKU-ESP-01" required>
+            </div>
+            <div class="form-group">
+              <label for="prod-category">Category *</label>
+              <select id="prod-category" class="form-select" required>
+                <option value="Food Ingredients">Food Ingredients</option>
+                <option value="Packaging & Cups">Packaging & Cups</option>
+                <option value="Beverage Supply">Beverage Supply</option>
+                <option value="Merchandise">Merchandise</option>
+                <option value="Cleaning & Sanitation">Cleaning & Sanitation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="prod-location">Commissary / Location *</label>
+              <select id="prod-location" class="form-select" required>
+                <option value="Central Commissary">Central Commissary (All Units)</option>
+                <!-- Injected via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="prod-price">Unit Cost Price ($) *</label>
+              <input type="number" id="prod-price" class="form-input" placeholder="e.g. 48.50" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+              <label for="prod-stock">Current Units in Stock *</label>
+              <input type="number" id="prod-stock" class="form-input" placeholder="e.g. 140" min="0" required>
+            </div>
+            <div class="form-group">
+              <label for="prod-min">Safety Stock Alert Threshold</label>
+              <input type="number" id="prod-min" class="form-input" placeholder="e.g. 25" min="1" value="25">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-product')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save SKU</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 5: ADD / EDIT OPERATIONAL TASK -->
+  <div id="modal-task" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-task')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-task-title">Create Operational Task</h3>
+        <button class="modal-close-btn" onclick="closeModal('modal-task')" aria-label="Close">&times;</button>
+      </div>
+      <form id="form-task" onsubmit="handleTaskSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="task-id">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="task-title">Task Directive Title *</label>
+              <input type="text" id="task-title" class="form-input" placeholder="e.g. Submit Q3 Regional Fire Safety Certificate" required>
+            </div>
+            <div class="form-group full-width">
+              <label for="task-desc">Description & Instructions</label>
+              <textarea id="task-desc" class="form-textarea" rows="3" placeholder="Specify requirements, photo evidence upload criteria, or inspection guidelines..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="task-location">Target Franchise Location *</label>
+              <select id="task-location" class="form-select" required>
+                <!-- Injected via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-assignee">Assigned Lead / Manager *</label>
+              <input type="text" id="task-assignee" class="form-input" placeholder="e.g. Marcus Vance" required>
+            </div>
+            <div class="form-group">
+              <label for="task-priority">Priority Tier *</label>
+              <select id="task-priority" class="form-select" required>
+                <option value="Urgent">Urgent (Immediate Action)</option>
+                <option value="High">High Priority</option>
+                <option value="Medium">Medium Priority</option>
+                <option value="Low">Low / Informational</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-status">Status Column *</label>
+              <select id="task-status" class="form-select" required>
+                <option value="To Do">To Do</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Review">Compliance Review</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="task-deadline">Compliance Deadline Date *</label>
+              <input type="date" id="task-deadline" class="form-input" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-task')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Task Directive</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 6: RECORD TRANSACTION / LEDGER ENTRY -->
+  <div id="modal-transaction" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-transaction')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Record Financial Entry / Fee</h3>
+        <button class="modal-close-btn" onclick="closeModal('modal-transaction')" aria-label="Close">&times;</button>
+      </div>
+      <form id="form-transaction" onsubmit="handleTransactionSubmit(event)">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="tx-desc">Entry Description *</label>
+              <input type="text" id="tx-desc" class="form-input" placeholder="e.g. Weekly Point-of-Sale Batch Settlement" required>
+            </div>
+            <div class="form-group">
+              <label for="tx-location">Franchise Branch *</label>
+              <select id="tx-location" class="form-select" required>
+                <!-- Injected via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tx-type">Transaction Type *</label>
+              <select id="tx-type" class="form-select" required>
+                <option value="POS Register Sales">POS Register Sales</option>
+                <option value="Royalty Payment">Royalty Settlement (HQ Inflow)</option>
+                <option value="Commissary Supply Order">Commissary Supply Order</option>
+                <option value="National Ad Fund Fee">National Ad Fund Contribution</option>
+                <option value="Technology License Fee">Technology License Fee</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tx-amount">Gross Amount ($) *</label>
+              <input type="number" id="tx-amount" class="form-input" placeholder="e.g. 5200.00" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+              <label for="tx-status">Settlement Status</label>
+              <select id="tx-status" class="form-select">
+                <option value="Completed">Completed / Cleared</option>
+                <option value="Pending">Pending ACH Processing</option>
+                <option value="Review">Under Audit Review</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-transaction')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Record Entry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 7: UPLOAD DOCUMENT -->
+  <div id="modal-document" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-document')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Upload Franchise Document</h3>
+        <button class="modal-close-btn" onclick="closeModal('modal-document')" aria-label="Close">&times;</button>
+      </div>
+      <form id="form-document" onsubmit="handleDocumentSubmit(event)">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="doc-title">Document Title *</label>
+              <input type="text" id="doc-title" class="form-input" placeholder="e.g. 2026 Franchise Disclosure Document (FDD)" required>
+            </div>
+            <div class="form-group">
+              <label for="doc-category">Document Classification *</label>
+              <select id="doc-category" class="form-select" required>
+                <option value="Franchise Agreements">Franchise Agreements</option>
+                <option value="Legal & Compliance">Legal & Compliance</option>
+                <option value="Financial Audits">Financial Audits</option>
+                <option value="Operational Manuals">Operational Manuals</option>
+                <option value="Training & Safety">Training & Safety</option>
+                <option value="Marketing Assets">Marketing Assets</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="doc-location">Applicable Territory</label>
+              <select id="doc-location" class="form-select">
+                <option value="All Locations">All Locations (Network-Wide)</option>
+                <!-- Injected via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="doc-file-sim">Select File (PDF, DOCX, XLSX)</label>
+              <input type="file" id="doc-file-sim" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="doc-version">Version Tag</label>
+              <input type="text" id="doc-version" class="form-input" value="v4.2" placeholder="e.g. v4.2">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-document')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Upload to Vault</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 8: ADD MARKETING CAMPAIGN -->
+  <div id="modal-campaign" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-campaign')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Launch Brand Marketing Campaign</h3>
+        <button class="modal-close-btn" onclick="closeModal('modal-campaign')" aria-label="Close">&times;</button>
+      </div>
+      <form id="form-campaign" onsubmit="handleCampaignSubmit(event)">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="camp-name">Campaign Initiative Name *</label>
+              <input type="text" id="camp-name" class="form-input" placeholder="e.g. Autumn Artisan Roast Regional Blitz" required>
+            </div>
+            <div class="form-group">
+              <label for="camp-budget">National Budget Allocated ($) *</label>
+              <input type="number" id="camp-budget" class="form-input" placeholder="e.g. 15000" min="100" required>
+            </div>
+            <div class="form-group">
+              <label for="camp-territory">Target Franchise Territory</label>
+              <select id="camp-territory" class="form-select">
+                <option value="Network-Wide">Network-Wide (All Units)</option>
+                <!-- Injected via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="camp-reach">Est. Target Audience Reach</label>
+              <input type="text" id="camp-reach" class="form-input" placeholder="e.g. 450,000 Impressions" value="350,000 Impressions">
+            </div>
+            <div class="form-group">
+              <label for="camp-status">Status</label>
+              <select id="camp-status" class="form-select">
+                <option value="Active">Active Live Campaign</option>
+                <option value="Scheduled">Scheduled Launch</option>
+                <option value="Draft">Draft Mode</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-campaign')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Launch Campaign</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 9: CONFIRMATION MODAL -->
+  <div id="modal-confirm" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-confirm')">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <h3 class="modal-title text-danger" id="confirm-modal-title">Confirm Action</h3>
+        <button class="modal-close-btn" onclick="closeModal('modal-confirm')" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-modal-message">Are you certain you wish to proceed with this deletion? This action cannot be reversed.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('modal-confirm')">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirm-modal-btn">Confirm Deletion</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 10: USER LOGIN / AUTH DEMO MODAL -->
+  <div id="modal-auth" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event, 'modal-auth')">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <div class="brand-logo sm">
+          <div class="logo-icon-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          </div>
+          <span class="brand-name">Franchise<span>Flow</span></span>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-auth')" aria-label="Close">&times;</button>
+      </div>
+      <form onsubmit="handleDemoAuth(event)">
+        <div class="modal-body">
+          <h4 class="text-center mb-1">Enterprise SSO Access</h4>
+          <p class="text-xs text-muted text-center mb-3">Authenticate with institutional credentials or sample demo accounts.</p>
+          <div class="form-group mb-2">
+            <label for="auth-email">Corporate Email</label>
+            <input type="email" id="auth-email" class="form-input" value="a.hayes@franchisecosys.com" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="auth-password">Password</label>
+            <input type="password" id="auth-password" class="form-input" value="••••••••••••" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="auth-role">Demo Role Clearance</label>
+            <select id="auth-role" class="form-select">
+              <option value="Super Admin">Super Admin (Franchisor HQ)</option>
+              <option value="Franchise Owner">Franchise Multi-Unit Owner</option>
+              <option value="Franchise Manager">Branch General Manager</option>
+              <option value="Staff">Shift Staff Member</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Sign In to Workspace &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script src="script.js"></script>
+</body>
+</html>
